@@ -1,0 +1,117 @@
+/* Header */
+.large-header {
+	position: relative;
+	width: 100%;
+	background: #333;
+	overflow: hidden;
+	background-size: cover;
+	background-position: center center;
+	z-index: 1;
+}
+
+.main .large-header {
+	background-image: url('../img/demo-1-bg.jpg');
+}
+
+
+
+.main-title {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	color: #f9f1e9;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0);
+	transform: translate3d(-50%,-50%,0);
+}
+
+.main .main-title {
+	text-transform: uppercase;
+	font-size: 2.2em;
+	letter-spacing: 0.1em;
+}
+
+
+.main-title .thin {
+	font-weight: 200;
+	font-size: 0.75em;
+	display: block;
+}
+
+.main-title .email {
+	margin-top: 40px;
+	text-transform: none !important;
+	font-weight: 500;
+	display: block;
+	color:white 
+}
+
+.main-title .email a{
+	color:white !important;
+}
+
+.main-title .email a:hover{
+	color:#eaa261 !important;
+	text-decoration: underline;
+}
+
+.btn {
+    margin-top: 30px;
+    position: relative;
+    display: inline-block;
+    width: 277px;
+    height: 50px;
+    font-size: 1em;
+    font-weight: bold;
+    line-height: 60px;
+    text-align: center;
+    text-transform: uppercase;
+    background-color: transparent;
+    cursor: pointer;
+    text-decoration:none;
+    font-family: 'Roboto', sans-serif;
+    font-weight:900;
+    font-size:17px;
+    letter-spacing: 0.045em;
+}
+
+.btn svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.btn svg rect {
+    //stroke: #1fa3ef;
+    stroke-width: 4;
+    stroke-dasharray: 353, 0;
+    stroke-dashoffset: 0;
+    -webkit-transition: all 600ms ease;
+    transition: all 600ms ease;
+}
+
+.btn span{
+background: #a7cfdf; /* Old browsers */
+background: -moz-linear-gradient(left, #a7cfdf 0%, #1fa3ef 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left, #a7cfdf 0%,#1fa3ef 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right, #a7cfdf 0%,#1fa3ef 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#1fa3ef',GradientType=1 ); /* IE6-9 */
+  
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.btn:hover svg rect {
+    stroke-width: 4;
+    stroke-dasharray: 196, 543;
+    stroke-dashoffset: 437;
+}
+
+@media only screen and (max-width : 768px) {
+	.main .main-title{
+		font-size: 1.3em;
+	}
+
+}
