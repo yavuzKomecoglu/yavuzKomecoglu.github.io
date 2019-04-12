@@ -412,6 +412,8 @@ function startGame() {
 		}
 		gaming = true;
 		startButton.disabled = true;
+		isPredicting=true;
+		predictPlay();
 	
 		var img = document.getElementById("image-human");
 		img.src = "";
