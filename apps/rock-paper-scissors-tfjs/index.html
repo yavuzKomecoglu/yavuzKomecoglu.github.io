@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Taş - Kağıt - Makas | Devnot Summit'19 | TensorFlow.js Demo</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+</head>
+
+<body>
+	<div class="container">
+		<div id="mobile-tablet-warning" class="mobile-tablet-warning">
+			<h3>Lütfen uygulamayı PC ile açınız!</h3>
+		</div>
+
+		<div class="game-container" id="game-container">
+			<header class="game-header">
+				<h3>Taş - Kağıt - Makas | Tensorflow.js</h3>
+				<p>Devnot Summit'19</p>
+			</header>
+			<div class="game-wrapper">
+				<div class="game-player game-flex">
+					<div class="game-kit">
+						<div id="game-rock" class="game-kit-comps">
+							<img id="emoticon-rock" src="assets/images/rock2.png" />
+						</div>
+						<div id="game-paper" class="game-kit-comps">
+							<img id="emoticon-paper" src="assets/images/paper2.png" />
+						</div>
+						<div id="game-scissors" class="game-kit-comps">
+							<img id="emoticon-scissors" src="assets/images/scissors2.png" />
+						</div>
+					</div>
+					<div class="start-game-wrapper">
+						<button id="btn-start-game" class="btn-start-game" onclick="startGame()">Oyunu Başlat</button>
+					</div>
+					<div class="start-game-wrapper">
+						<p id="game-status" class="game-status"></p>
+					</div>				
+					<div class="game-live-cam">
+						<div class="webcam">
+							<!---<video id="main-stream-video" width="200px" height="200px" ></video>-->
+							<img id="image-human" />
+							<div id="main-stream-video"></div>
+						</div>
+						<div class="pc">
+							<img id="rock-pc" src="assets/images/rock.png" class="hide">
+							<img id="paper-pc" src="assets/images/paper.png" class="hide">
+							<img id="scissors-pc" src="assets/images/scissor.png" class="hide">
+						</div>
+					</div>
+				</div>
+				<!--- Controller starts here -->
+				<div class="game-controller game-flex" id="game-controller">
+					<!--- Tuner starts here -->
+					<div class="game-tuner" id="game-tuner">
+						<!--- Learning Rate starts here -->
+						<div class="game-dropdown">
+							<label>Öğrenme Adımı (Learning Rate)</label>
+							<select id="game-learning-rate">
+								<option>0.00001</option>
+								<option selected>0.0001</option>
+								<option>0.001</option>
+								<option>0.003</option>
+							</select>
+						</div>
+						<!--- Learning Rate ends here -->
+						<!--- Batch Size starts here -->
+						<div class="game-dropdown">
+							<label>Küme Boyutu (Batch Size)</label>
+							<select id="game-batch-size">
+								<option>0.05</option>
+								<option selected>0.4</option>
+								<option>0.1</option>
+								<option>1</option>
+							</select>
+						</div>
+						<!--- Batch Size ends here -->
+						<!--- Epochs starts here -->
+						<div class="game-dropdown">
+							<label>Devir (Epochs)</label>
+							<select id="game-epochs">
+								<option>10</option>
+								<option selected>20</option>
+								<option>40</option>
+							</select>
+						</div>
+						<!--- Epochs ends here -->
+						<!--- Hidden Units starts here -->
+						<div class="game-dropdown">
+							<label>Gizli Katman (Hidden Units)</label>
+							<select id="game-hidden-units">
+								<option>10</option>
+								<option selected>100</option>
+								<option>200</option>
+							</select>
+						</div>
+						<!--- Hidden Units ends here -->
+					</div>
+					<!--- Tuner ends here -->
+					<!--- Buttons starts here -->
+					<div class="game-buttons">
+						<button onclick="startWebcam()">Başlat</button>
+						<button onclick="train()">Eğit</button>
+						<button onclick="predictPlay()">Çalıştır</button>
+						<button onclick="stopWebcam()">Durdur</button>
+					</div>
+					<!--- Buttons ends here -->
+					<!--- User acquire starts here -->
+					<div class="game-acquire">
+						<div class="game-acquire-outer">
+							<div class="game-acquire-inner" id="sample-rock" onclick="captureSample(this.id, 0)">
+								<div class="game-acquire-cam">
+									<img id="image-rock" />
+								</div>
+								<p>Ekle </p>
+							</div>
+							<img id="emoticon-rock" src="assets/images/rock2.png" height="32px" />
+							<p id="count-rock">0 örnek</p>
+						</div>
+						<div class="game-acquire-outer">
+							<div class="game-acquire-inner" id="sample-paper" onclick="captureSample(this.id, 1)">
+								<div class="game-acquire-cam">
+									<img id="image-paper" />
+								</div>
+								<p>Ekle </p>
+							</div>
+							<img id="emoticon-paper" src="assets/images/paper2.png" height="32px" />
+							<p id="count-paper">0 örnek</p>
+						</div>
+						<div class="game-acquire-outer">
+							<div class="game-acquire-inner" id="sample-scissors" onclick="captureSample(this.id, 2)">
+								<div class="game-acquire-cam">
+									<img id="image-scissors" />
+								</div>
+								<p>Ekle </p>
+							</div>
+							<img id="emoticon-scissors" src="assets/images/scissors2.png" height="32px" />
+							<p id="count-scissors">0 örnek </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<footer>
+		<p><a href="http://summit.devnot.com/" target="_blank">Developer Summit 2019 </a> | <a href="http://yavuzkomecoglu.com/" target="_blank">Yavuz Kömeçoğlu</a></p>
+	</footer>
+
+	<!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script> -->
+	<!-- <script src="https://unpkg.com/@tensorflow/tfjs"></script> -->
+
+	<script type="text/javascript" src="js/tensorflowjs.min.js"></script>
+	
+	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+	<script type="text/javascript" src="js/webcam.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+</body>
+
+</html>

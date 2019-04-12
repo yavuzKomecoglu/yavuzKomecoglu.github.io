@@ -116,9 +116,11 @@ function captureWebcam() {
 	MyCanvas.height = imgHeight;
 	
 	Webcam.snap( function(data_uri, canvas, context) {
+		console.log(data_uri)
+		console.log(canvas)
 		
 		MyContext.drawImage(canvas, 0, 0);
-		//console.log(MyContext.canvas);
+		console.log(MyContext.canvas);
 		tensor_image = preprocessImage(MyCanvas);
 	
 	});

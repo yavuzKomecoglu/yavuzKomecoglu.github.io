@@ -1,0 +1,521 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  width: 100%;
+  height: auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+select {
+  padding: 5px;
+  font-family: 'Roboto', sans-serif;
+  border-radius: 5px;
+  
+}
+
+label {
+  margin: 0.7em 0;
+}
+
+footer {
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background-color: black;
+}
+
+footer p {
+  color: white;
+  margin: 0px !important;
+  font-size: 13px;
+  padding-top: 10px;
+}
+
+footer a {
+  text-decoration: none;
+  color: #78d1dc;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.mobile-tablet-warning {
+  display: none;
+  background-color: #1a1c22;
+  height: 90vh;
+  width: 100%;
+  padding: 30px;
+}
+
+.mobile-tablet-warning h3 {
+  text-align: center;
+  font-size: 40px;
+  color: #db4437;
+  margin: 0px;
+  padding: 50px 20px;
+}
+
+.mobile-tablet-warning p {
+  font-size: 14px;
+  color: white;
+}
+
+.game-container {
+  height: 100vh;
+  background-color: #1a1c22;
+  margin: 0px;
+}
+
+@media screen and (max-width: 640px) {
+  .game-container {
+    height: 100%;
+    padding: 0px;
+    margin-bottom: 40px;
+  }
+}
+
+.game-header {
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  padding: 20px 0px;
+}
+
+.game-header h3 {
+  margin: 0px;
+  padding: 0px;
+  font-size: 25px;
+  color: #78d1dc;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media screen and (max-width: 640px) {
+  .game-header h3 {
+    font-size: 20px;
+  }
+}
+
+.game-header p {
+  margin: 0px !important;
+  margin-bottom: 0px !important;
+  color: lightgrey;
+  font-size: 14px;
+}
+
+.game-wrapper {
+  background-color: black;
+  width: 100%;
+  height: 85%;
+  display: flex;
+  flex-wrap: wrap;
+  font-family:"Press Start 2P";
+}
+
+@media screen and (max-width: 640px) {
+  .game-wrapper {
+    display: block;
+  }
+}
+
+.game-flex {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #131519;
+}
+
+.game-player {
+  border-right: 1px solid #252933;
+}
+
+@media screen and (max-width: 640px) {
+  .game-player {
+    border-bottom: 1px solid #252933;
+    border-right: 0px;
+  }
+}
+
+.game-tuner {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  padding: 50px 0px;
+}
+
+@media screen and (max-width: 640px) {
+  .game-tuner {
+    flex-wrap: wrap;
+    padding: 5%;
+  }
+}
+
+.game-tuner .game-dropdown {
+  flex: 1;
+}
+
+.game-tuner select {
+  display: inline-block;
+  background-color: #000000;
+  border: 0px;
+  color: lightgrey;
+  border-bottom: 1px solid #424242;
+  margin-top: 0px;
+}
+
+@media screen and (max-width: 640px) {
+  .game-tuner select {
+    font-size: 10px;
+  }
+}
+
+.game-tuner label {
+  display: block;
+  color: lightgrey;
+  font-size: 13px;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media screen and (max-width: 640px) {
+  .game-tuner label {
+    font-size: 10px;
+  }
+}
+
+.game-acquire {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  padding: 30px 0px;
+}
+
+.game-acquire .game-acquire-outer {
+  padding: 10px 0px;
+  background-color: black;
+  border: 2px solid #7a7a7a;
+  border-radius: 4px;
+  margin: 0 20px;
+  flex: 1;
+  width: 175px;
+  height: 200px;
+}
+
+@media screen and (max-width: 640px) {
+  .game-acquire .game-acquire-outer {
+    width: 125px;
+    height: 125px;
+    margin: 10px;
+    flex: none;
+  }
+}
+
+.game-acquire .game-acquire-inner {
+  width: 100%;
+  height: 155px;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 640px) {
+  .game-acquire .game-acquire-inner {
+    height: 85px;
+  }
+}
+
+.game-acquire .game-acquire-inner p {
+  margin: 0px;
+  margin-bottom: 0px !important;
+  font-size: 18px;
+  color: lightgrey;
+  text-align: center;
+  padding: 3px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.game-acquire .game-acquire-inner .game-acquire-cam img {
+  width: 150px;
+  height: 150px;
+  border: 1px solid #7a7a7a;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 640px) {
+  .game-acquire .game-acquire-inner .game-acquire-cam img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.game-acquire p {
+  margin: 0px;
+  margin-bottom: 0px !important;
+  font-size: 14px;
+  color: #ffcc4d;
+  text-align: center;
+  padding: 3px;
+  width: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+
+.game-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  padding: 10px 0px;
+}
+
+@media screen and (max-width: 640px) {
+  .game-buttons {
+    display: block;
+  }
+}
+
+.game-buttons button {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 5px solid #ffffff;
+  padding: 20px;
+  background-color: #78d1dc;
+  color: black;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@media screen and (max-width: 640px) {
+  .game-buttons button {
+    width: 60px;
+    height: 60px;
+    padding: 10px;
+    font-size: 12px;
+    margin: 0 10px;
+  }
+}
+
+.game-buttons button:focus {
+  outline: none;
+}
+
+.game-buttons button:hover {
+  transform: scale(1.3);
+  border: 5px solid #78d1dc;
+  padding: 20px;
+  background-color: #ffffff;
+}
+
+.game-kit {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+@media screen and (max-width: 640px) {
+  .game-kit {
+    padding-top: 0px;
+  }
+}
+
+.game-kit .game-kit-comps {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  border: 6px solid #e9e9e9;
+  margin: 10px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@media screen and (max-width: 640px) {
+  .game-kit .game-kit-comps {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+.game-kit .game-kit-comps audio {
+  width: 120px;
+  height: 85px;
+}
+
+@media screen and (max-width: 640px) {
+  .game-kit .game-kit-comps audio {
+    width: 70px;
+    height: 25px;
+  }
+}
+
+.game-kit .game-kit-comps p {
+  margin: 0px;
+  margin-bottom: 0px !important;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+  padding: 40px 0px;
+  width: 100%;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 640px) {
+  .game-kit .game-kit-comps p {
+    padding: 12px 0px;
+  }
+}
+
+.game-kit .game-kit-comps:hover {
+  transform: scale(1.1);
+  border-color: #ffcc4d;
+}
+
+.game-kit-comps p::selection {
+  color: #333;
+  background: transparent;
+}
+
+.start-game-wrapper
+{
+  display: flex; 
+  justify-content: center; 
+  padding-top: 15px;
+}
+
+.btn-start-game
+{
+  width: 250px;
+  height: 60px;
+  border-radius: 10px;
+  border: 5px solid #ffffff;
+  padding: 0px 10px;
+  background-color: #ffcc4d;
+  color: black;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  margin: 0 20px;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-start-game:hover
+{
+  transform: scale(1.1);
+  border: 5px solid #ffcc4d;
+  background-color: #ffffff;
+}
+
+
+.btn-start-game:disabled {
+  background: #dddddd;
+}
+
+.game-status
+{
+  display: block;
+  color:#FFF;
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+.game-live-cam {
+  width: 100%;
+  padding-top: 20px;
+
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.game-live-cam .webcam {
+  width: 400px;
+  height: 400px;
+  background-color: black;
+  border-radius: 10px;
+  margin: 0px auto;
+  border: 2px solid #7a7a7a;
+  overflow: hidden;
+
+  position: relative;
+  flex: 1;
+}
+
+.game-live-cam .pc {
+  width: 400px;
+  height: 400px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin: 0px auto;
+  border: 2px solid #7a7a7a;
+  overflow: hidden;
+
+  flex: 1;
+}
+
+.game-live-cam .pc img{
+  width: 250px;
+  margin: 50px auto;
+}
+
+@media screen and (max-width: 640px) {
+  .game-live-cam .webcam {
+    width: 180px;
+    height: 180px;
+    margin-top: 10px;
+  }
+}
+
+.game-live-cam video {
+  width: 400px;
+  height: 400px;
+
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 640px) {
+  .game-live-cam video {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+.game-loss {
+  color: #ffcc4d;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 0px !important;
+  margin: 0px !important;
+  padding: 10px 20px !important;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*# sourceMappingURL=app.css.map */
+
+.hide{
+  display: none !important;
+}
