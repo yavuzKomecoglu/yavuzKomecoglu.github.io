@@ -9,4 +9,7 @@
   * * 5-Oyunu başlat buttonu ile, sayaç geri saymaya başlayacaktır. 5 saniye içerisinde hamlenizi hazırlayın ve sistemin size karşı hamlesini bekleyin.
   * * 6-Oyun sonlandığında, oyunu başlat buttonu ile yeniden başlatabilirsiniz. 
   * * Not: Eğer doğru tahmin yapmıyor ise örnek sayınızı arttırarak yeniden eğitebilirsiniz. İyi eğlenceler =)
+  
+* [Pong Game - HandtrackJS](https://yavuzkomecoglu.github.io/apps/handtrackjs-pong-game/)
+
 
