@@ -1,3 +1,8 @@
+### Tensorflow JS - Presentation
+
+* [Tensorflow JS - Presentation](https://yavuzkomecoglu.github.io/apps/izmir2019_tfjs.pdf)
+
+
 ### APPS
 * [Emotion Recognizer - TensorflowJS](https://yavuzkomecoglu.github.io/apps/emotion-recognizer-tfjs/)
 * [Rock-Paper-Scissors Game - TensorflowJS](https://yavuzkomecoglu.github.io/apps/rock-paper-scissors-tfjs/index.html)
@@ -9,6 +14,8 @@
   * * 5-Oyunu başlat buttonu ile, sayaç geri saymaya başlayacaktır. 5 saniye içerisinde hamlenizi hazırlayın ve sistemin size karşı hamlesini bekleyin.
   * * 6-Oyun sonlandığında, oyunu başlat buttonu ile yeniden başlatabilirsiniz. 
   * * Not: Eğer doğru tahmin yapmıyor ise örnek sayınızı arttırarak yeniden eğitebilirsiniz. İyi eğlenceler =)
+
+* [Real Time Object Detection](https://yavuzkomecoglu.github.io/apps/realtime_object_detection_tfjs/index.html)
   
 * [Pong Game - HandtrackJS](https://yavuzkomecoglu.github.io/apps/handtrackjs-pong-game/)
 
