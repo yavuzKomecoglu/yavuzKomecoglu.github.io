@@ -1,0 +1,106 @@
+<!-- Credits to below blog post
+https://medium.com/@erdemisbilen/building-realtime-object-detection-webapp-with-tensorflow-js-and-angular-a4ff5062bdf1
+He implemented in angular, but i converted it into pure html & js code(no need of server) -->
+
+
+<html>
+
+<head>
+    <title>
+        Object detect
+    </title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/coco-ssd"></script>
+</head>
+
+<body>
+    <div style="text-align:center">
+        <h1>Tensorflow.js Real Time Object Detection</h1>
+        <video hidden id="vid" width="600" height="600" autoplay></video>
+        <canvas id="canvas"></canvas>
+    </div>
+
+
+    <script>
+        var video = document.getElementById('vid');
+        navigator.mediaDevices.getUserMedia({
+            audio: false,
+            video: true
+        }).then(function(stream) {
+            // video.src = window.URL.createObjectURL(stream);
+            video.srcObject = stream;
+            video.onloadedmetadata = () => {
+                video.play();
+            };
+            predictWithCocoModel(video);
+            // video.play();
+        });
+
+
+
+
+        async function predictWithCocoModel(frame) {
+            const model = await cocoSsd.load('lite_mobilenet_v2');
+            detectFrame(frame, model);
+
+        }
+
+
+
+        detectFrame = (frame, model) => {
+            model.detect(frame).then(predictions => {
+                this.renderPredictions(predictions);
+                requestAnimationFrame(() => {
+                    this.detectFrame(frame, model);
+                });
+            });
+        }
+
+
+
+
+        renderPredictions = predictions => {
+            const canvas = document.getElementById("canvas");
+
+            const ctx = canvas.getContext("2d");
+            canvas.width = 600;
+            canvas.height = 600;
+            ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            // Fonts
+            const font = "16px sans-serif";
+            ctx.font = font;
+            ctx.textBaseline = "top";
+            ctx.drawImage(this.video, 0, 0, 600, 600);
+
+            predictions.forEach(prediction => {
+                const x = prediction.bbox[0];
+                const y = prediction.bbox[1];
+                const width = prediction.bbox[2];
+                const height = prediction.bbox[3];
+                // Bounding box
+                ctx.strokeStyle = "#e7bb00";
+                ctx.lineWidth = 3;
+                ctx.strokeRect(x, y, width, height);
+                // Label background
+                ctx.fillStyle = "#e7bb00";
+                const textWidth = ctx.measureText(prediction.class).width;
+                const textHeight = parseInt(font, 10); // base 10
+                ctx.fillRect(x, y, textWidth + 4, textHeight + 4);
+            });
+
+            predictions.forEach(prediction => {
+
+                const x = prediction.bbox[0];
+                const y = prediction.bbox[1];
+                ctx.fillStyle = "#000000";
+                ctx.fillText(prediction.class, x, y);
+            });
+        };
+    </script>
+</body>
+
+
+
+
+
+</html>
