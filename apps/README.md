@@ -1,6 +1,6 @@
 ### Tensorflow JS - Presentation
 
-* [Tensorflow JS - Presentation](https://yavuzkomecoglu.github.io/apps/izmir2019_tfjs.pdf)
+* [Tensorflow JS - Presentation](https://github.com/yavuzKomecoglu/yavuzKomecoglu.github.io/blob/master/apps/izmir2019_tfjs.pdf)
 
 
 ### APPS
